@@ -53,7 +53,7 @@ namespace L2.Arrays.OddOccurrencesInArray
 
             if (array == null || (len = array.Length) == 0) return;
 
-            var unpaired = Solution(array, len);
+            var unpaired = new Solution().solution(array);
 
             array.Print(leadingMessage: "\nInput: ");
             Console.WriteLine($"Unpaired integer: {unpaired}");
@@ -61,51 +61,6 @@ namespace L2.Arrays.OddOccurrencesInArray
             Console.ReadKey();
         }
         
-        public static int Solution(int[] array, int len)
-        {
-            Debug.Assert(len.IsOdd());
-
-            var medianIndex = (len - 1) / 2;
-            var tempArray = new int[medianIndex];
-            tempArray[0] = array[medianIndex];
-            var tempArrayFilledTillIndex = 0;
-
-            int backward = medianIndex - 1;
-            int forward = medianIndex + 1;
-
-            while (backward >= 0 || forward < len)
-            {
-                if (backward >= 0)
-                {
-                    CompareElement(array, tempArray, ref backward, ref tempArrayFilledTillIndex);
-                    backward--;
-                }
-
-                if (forward < len)
-                {
-                    CompareElement(array, tempArray, ref forward, ref tempArrayFilledTillIndex);
-                    forward++;
-                }
-            }
-
-            return tempArray[0];
-        }
-
-        private static void CompareElement(int[] array, int[] tempArray, ref int index, ref int tempArrayFilledTillIndex)
-        {
-            var elementFoundAt = tempArray.Find<int>(array[index], 0, tempArrayFilledTillIndex);
-
-            if (elementFoundAt >= 0)
-            {
-                tempArray.RemoveElementAt(elementFoundAt);
-                tempArrayFilledTillIndex--;
-            }
-            else
-            {
-                tempArray[++tempArrayFilledTillIndex] = array[index];
-            }
-        }
-
         private static int[] GetUserInput()
         {
             var s =
