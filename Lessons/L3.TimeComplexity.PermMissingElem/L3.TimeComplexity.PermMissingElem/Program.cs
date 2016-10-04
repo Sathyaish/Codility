@@ -48,7 +48,7 @@ namespace L3.TimeComplexity.PermMissingElem
         {
             var array = Enumerable
                 .Range(1, 1000000)
-                .Except(Enumerable.Repeat(1, 1))
+                .Except(Enumerable.Repeat(10001, 1))
                 .ToArray();
 
             var s = new Solution();
