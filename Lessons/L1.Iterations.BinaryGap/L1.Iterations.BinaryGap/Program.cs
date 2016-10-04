@@ -35,23 +35,39 @@ namespace L1.Iterations.BinaryGap
     {
         static void Main(string[] args)
         {
+            // Try with the following inputs:
+            // 1312 = 10100100000
+            // 2304 = 100100100100
+            // 8320 = 10000010000000
+            // 5 = [Leading Zeros]101
+            // 8 = [Leading Zeros]1000
+            // 6 = [Leading Zeros]110
+            // int.Max (2147483647) = 1111111111111111111111111111111
             var n = 0;
 
-            Console.WriteLine("This program finds the longest sequence of zeros \nin the binary representation of a number.");
-            Console.Write("\nType the number in whose binary representation you \nwish to find the longest sequence of zeros: ");
+            Console.WriteLine("This program finds the longest sequence of zeros \nsurrounded by 1's on both sides in the binary representation \nof a number.");
+            Console.Write("\nType the number whose binary representation you \nwish to scan: ");
             var b = int.TryParse(Console.ReadLine(), out n);
 
             if (!b) return;
 
-            var longest = new Solution().solution(n);
+            var s = Convert.ToString(n, 2);
+            Console.WriteLine("\nThe binary representation of {0} is {1}.", n, s);
+
+            var longest = new Solution().solution2(n);
             
             if (longest == 0)
             {
-                Console.WriteLine("There are no zero's in the binary representation of {0}.", n);
+                Console.WriteLine("\nThere are no zero's in the binary representation of {0}.", n);
             }
             else
             {
-                Console.WriteLine("The largest sequence of zero's in the binary represenation of {0} consists of {1} zeros.", n, longest);
+                Console.WriteLine($"\nThe longest sequence of zero's in the binary representation of {n} is {longest} zeros.");
+
+                longest = 0;
+                longest = new Solution().solution(n);
+
+                Console.WriteLine($"\nHowever, the largest sequence of zero's surrounded by 1's on both sides in the binary represenation of {n} consists of {longest} zeros.");
             }
 
             Console.ReadKey();
