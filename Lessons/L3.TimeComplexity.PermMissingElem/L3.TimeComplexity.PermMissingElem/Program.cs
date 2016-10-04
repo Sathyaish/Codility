@@ -49,7 +49,10 @@ namespace L3.TimeComplexity.PermMissingElem
     {
         static void Main(string[] args)
         {
-            var array = new [] { 2, 1, 5, 3, 4, 7 };
+            var array = Enumerable
+                .Range(1, 1000000)
+                .Except(Enumerable.Repeat(1, 1))
+                .ToArray();
 
             var s = new Solution();
             var n = s.solution(array);
@@ -70,7 +73,9 @@ namespace L3.TimeComplexity.PermMissingElem
             for (int i = 0; i < len; i++)
                 sum += array[i];
 
-            return (((len + 1) * (len + 2) / 2) - sum);
+            long product = (long)(len + 1) * (len + 2);
+
+            return (int)((product / 2) - sum);
         }
     }
 }
