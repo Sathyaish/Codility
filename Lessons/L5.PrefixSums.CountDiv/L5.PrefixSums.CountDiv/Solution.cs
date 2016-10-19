@@ -6,8 +6,6 @@ namespace L5.PrefixSums.CountDiv
     {
         public int solution(int a, int b, int k)
         {
-            if (k > b) throw new ArgumentException();
-
             var difference = b - a;
 
             if (difference == 0) return (a % k == 0 ? 1 : 0);

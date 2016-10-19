@@ -6,9 +6,9 @@ namespace L5.PrefixSums.CountDiv
     {
         static void Main(string[] args)
         {
-            int a = 71;
-            int b = 79;
-            int k = 5;
+            int a = 11;
+            int b = 345;
+            int k = 17;
 
             var numMultiples = new Solution().solution(a, b, k);
 
