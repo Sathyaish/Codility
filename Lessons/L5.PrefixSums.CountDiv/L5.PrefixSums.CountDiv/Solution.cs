@@ -13,7 +13,7 @@ namespace L5.PrefixSums.CountDiv
             var dividend = difference / k;
             var remainder = difference % k;
 
-            return (remainder == (k - 1)) ? dividend + 1 : dividend;
+            return ((remainder == (k - 1)) || (remainder == 0)) ? dividend + 1 : dividend;
         }
     }
 }
