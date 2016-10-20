@@ -1,0 +1,30 @@
+﻿Usually, the sides of the triangle are such that:
+
+a + b > c
+b + c > a
+a + c > b
+
+If I have a sorted array, then I can pick the last element as the largest side
+Now, I need to pick any other two elements such that they are greater than half of this largest side
+I'll start looking in the middle of the array.
+If the mid-element is greater than half of the largest, return the mid one and its next one.
+If not, keep moving forward until.
+
+Oh, wait! But these numbers must not be negative. The question indicates that the array may have negative elements. So, think!
+
+Here is what I will do.
+
+If the last is negative, return false / 0;
+Otherwise:
+Do the mid-point thing described above, except also check that the guy is positive. 
+In fact, checking for half will eventually implicitly check for negatives also. But still check for negative first.
+No, just check for half. Negative will be an implicit check anyway if the last is a positive.
+
+Or, you know what, check the whole array instead of checking from the middle. 
+It could have a very uneven distribution with very small values at the beginning and very large values in the middle and onward.
+
+That doesn't work either. The last few elements could have way too large values such that none of the other elements in the array add up to them.
+
+So, divide and conquer. Instead of comparing with the last element, compare the first half with the median element.
+
+Or, damn it! Just compare if a[i] + a[i + 1] > a[i + 2] from beginning to end (len - 2) index.
