@@ -10,7 +10,7 @@ namespace L5.PrefixSums.MinAvgTwoSlice
 
             var result = new Solution().solution(array);
 
-            Console.WriteLine(result);
+            Console.WriteLine($"Starting index with minimal averrage: {result}");
         }
     }
 }

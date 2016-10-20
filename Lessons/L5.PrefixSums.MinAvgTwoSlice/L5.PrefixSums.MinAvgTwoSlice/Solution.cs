@@ -25,6 +25,8 @@ namespace L5.PrefixSums.MinAvgTwoSlice
             var prefixSums = GetPrefixSums(array);
             var minIndex = -1;
 
+            // Console.WriteLine();
+
             for(int i = 0; i < len - 1; i++)
             {
                 for (int j = i + 1; j < len; j++)
@@ -33,12 +35,16 @@ namespace L5.PrefixSums.MinAvgTwoSlice
                     long sumOfSlice = prefixSums[j + 1] - prefixSums[i];
                     double average = sumOfSlice / n;
 
+                    // Console.WriteLine($"slice ({i}, {j}), Average: {average}");
+
                     if (average < minAverage)
                     {
                         minAverage = average;
                         minIndex = i;
                     }
                 }
+
+                // Console.WriteLine();
             }
 
             return minIndex;
