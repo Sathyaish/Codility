@@ -1,0 +1,17 @@
+﻿After you sort the array, the possibilities are:
+
+1) All negative elements.
+2) All positive elements. Last 3 terms will yield the greatest product.
+3) Two negative elements at the beginning and 1 positive at the end
+4) One negative element at the beginning and the rest all positive
+
+if (last 3 terms are positive) find their product anyway. Let's calls this Last3Product.
+
+If (first and second are negative and the last one positive)
+{
+	find the product of the first, second and last elements. But this may not be the answer yet.
+	
+	return the greater of this product and Last3Product
+}
+
+return last3Product
