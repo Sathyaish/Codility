@@ -1,0 +1,5 @@
+﻿Same as Nesting, the previous problem except there are 3 types of paranthesis now so the 
+counter based solution (Space complexity of O(1)) will not do. We have to keep a stack.
+
+And every time a pop instruction is received, the type of closing paren in the pop instruction
+must match the opening paren I am popping out.
