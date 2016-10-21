@@ -8,6 +8,8 @@ namespace L5.PrefixSums.MinAvgTwoSlice
         {
             var array = new[] { 4, 2, 2, 5, 1, 5, 8 };
 
+            Console.WriteLine("Input array: { 4, 2, 2, 5, 1, 5, 8 }");
+
             var result = new Solution().solution(array);
 
             Console.WriteLine($"Starting index with minimal averrage: {result}");

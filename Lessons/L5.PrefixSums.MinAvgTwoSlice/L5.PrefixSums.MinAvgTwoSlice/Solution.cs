@@ -33,7 +33,7 @@ namespace L5.PrefixSums.MinAvgTwoSlice
                 {
                     int n = j - i + 1;
                     long sumOfSlice = prefixSums[j + 1] - prefixSums[i];
-                    double average = sumOfSlice / n;
+                    double average = (double) sumOfSlice / n;
 
                     // Console.WriteLine($"slice ({i}, {j}), Average: {average}");
 
