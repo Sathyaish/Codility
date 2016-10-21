@@ -1,0 +1,13 @@
+﻿This is a simple stack based problem.
+
+Think of each ( as a push instruction and each ) as a pop.
+
+At the end of the string, the stack must be empty. If it isn't, the thing isn't a proper nested thing.
+
+
+***
+
+Another way to do it is simply to keep a counter of the number of pending open paranthesis instead of using a stack.
+That is a more memory efficient (O(1)) solution instead of an (O(n)) space complexity solution, and also with the same time complexity as the previous stack-based solution, whose time complexity is also O(N).
+
+Not just the total but I must check at every stage of input, if the number of pending paranthesis, whether using a stack based solution or simply a counter, is less than zero, then return false. And at the end, it must be zero.
