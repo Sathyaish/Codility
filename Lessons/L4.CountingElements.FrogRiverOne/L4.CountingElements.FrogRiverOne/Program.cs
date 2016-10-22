@@ -22,6 +22,9 @@ namespace L4.CountingElements.FrogRiverOne
         public int solution(int x, int[] array)
         {
             var len = array.Length;
+
+            if (len == 1) return (x == 0 ? 0 : -1);
+
             var shadow = new int[len + 1];
             var sumTillX = (long)(x * (x + 1)) / 2;
             var runningTotal = 0;
