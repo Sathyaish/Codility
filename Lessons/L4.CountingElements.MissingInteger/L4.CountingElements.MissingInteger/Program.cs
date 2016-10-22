@@ -61,18 +61,24 @@ namespace L4.CountingElements.MissingInteger
         public int solution(int[] array)
         {
             var len = array.Length;
-            var shadow = new int[len + 1];
+
+            if (len == 1)
+            {
+                return (array[0] == 1) ? 2 : 1;
+            }
+
+            var shadow = new int[len + 2];
 
             for(int i = 0; i < len; i++)
             {
                 var current = array[i];
 
-                if ((current < 0) || (current > len)) continue;
+                if ((current < 0) || (current > len + 1)) continue;
 
                 shadow[current] += 1;
             }
 
-            for (int i = 1; i < len + 1; i++)
+            for (int i = 1; i < len + 2; i++)
                 if (shadow[i] == 0) return i;
 
             return 0;
