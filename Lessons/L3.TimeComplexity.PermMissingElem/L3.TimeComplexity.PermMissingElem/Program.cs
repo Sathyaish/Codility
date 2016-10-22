@@ -63,16 +63,18 @@ namespace L3.TimeComplexity.PermMissingElem
     {
         public int solution(int[] array)
         {
+            if (array == null)
+                throw new ArgumentNullException("array");
+
             var len = array.Length;
 
-            var sum = 0;
+            long sumToNPlusOneShouldHaveBeen = ((long)(len + 1) * (len + 2)) /  2;
 
-            for (int i = 0; i < len; i++)
-                sum += array[i];
+            var actualSum = 0;
 
-            long product = (long)(len + 1) * (len + 2);
-
-            return (int)((product / 2) - sum);
+            for (int i = 0; i < len; i++) actualSum += array[i];
+            
+            return (int)(sumToNPlusOneShouldHaveBeen - actualSum);
         }
     }
 }
