@@ -37,6 +37,11 @@ public class Solution
                 {
                     curr--;
                 }
+
+                if (curr >= 0)
+                {
+                    if (fish.Size < survivors[curr].Size && survivors[curr].Direction == 1) continue;
+                }
             }
 
             survivors[++curr] = fish;
