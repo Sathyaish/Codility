@@ -21,7 +21,6 @@ namespace L8.Leader.Dominator
         {
             try
             {
-                Console.WriteLine();
                 var result = new Solution().solution(array);
                 Console.WriteLine(result);
             }
@@ -29,7 +28,8 @@ namespace L8.Leader.Dominator
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
+            Console.WriteLine();
         }
     }
 }
