@@ -1,19 +1,14 @@
-﻿using System;
-
-namespace L5.PrefixSums.CountDiv
+﻿public class Solution
 {
-    public class Solution
+    public int solution(int a, int b, int k)
     {
-        public int solution(int a, int b, int k)
-        {
-            var difference = b - a;
+        var d1 = a / k;
+        var d2 = b / k;
 
-            if (difference == 0) return (a % k == 0 ? 1 : 0);
+        var diff = d2 - d1;
 
-            var dividend = difference / k;
-            var remainder = difference % k;
+        if (a % k == 0) diff++;
 
-            return ((remainder == (k - 1)) || (remainder == 0)) ? dividend + 1 : dividend;
-        }
+        return diff;
     }
 }

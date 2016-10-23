@@ -11,12 +11,11 @@ namespace L5.PrefixSums.PassingCars
             if (array == null || nLen == null || nLen == 0)
                 throw new ArgumentNullException("array");
 
-            if (nLen < 2)
-                throw new ArgumentException("Input array must have at least 2 elements.");
+            if (nLen < 2) return 0;
 
             var len = nLen.Value;
 
-            var numPairs = 0;
+            long numPairs = 0;
             var prefixSums = GetPrefixSums(array);
 
             for (int i = 0; i < len; i++)
@@ -26,7 +25,7 @@ namespace L5.PrefixSums.PassingCars
                 numPairs += GetSumOfSlice(prefixSums, i, len - 1);
             }
 
-            return numPairs > 1000000000 ? -1 : numPairs;
+            return numPairs > 1000000000 ? -1 : (int) numPairs;
         }
         
         private int GetSumOfSlice(int[] prefixSums, int from, int to)

@@ -6,19 +6,27 @@ namespace L5.PrefixSums.CountDiv
     {
         static void Main(string[] args)
         {
-            int a = 11;
-            int b = 345;
-            int k = 17;
+            Test(11, 345, 17);
+            Test(70, 75, 5);
+            Test(71, 76, 5);
+            Test(71, 75, 5);
+            Test(40, 120, 60);
+            Test(20, 100, 60);
+            Test(6, 11, 2);
+        }
+
+        static void Test(int a, int b, int k)
+        {
+            Console.WriteLine();
 
             var numMultiples = new Solution().solution(a, b, k);
-
-            Console.WriteLine($"Number of multiples of {k} between {a} and {b}: {numMultiples}\n");
+            Console.WriteLine($"Number of multiples of {k} between {a} and {b}: {numMultiples}");
             PrintFactors(a, b, k);
-            Verbose(a, b, k);
         }
 
         static void PrintFactors(int from, int to, int of)
         {
+            Console.Write("[");
             int n = 0;
             for (int i = from; i <= to; i++)
             {
@@ -29,25 +37,7 @@ namespace L5.PrefixSums.CountDiv
                 }
             }
 
-            Console.WriteLine($"\n{n} factors found.");
-        }
-
-        static int Verbose(int a, int b, int k)
-        {
-            Console.WriteLine();
-
-            var difference = b - a;
-            Console.WriteLine($"Difference: {difference}");
-
-            if (difference == 0) return (a % k == 0 ? 1 : 0);
-
-            var dividend = difference / k;
-            var remainder = difference % k;
-
-            Console.WriteLine($"Dividend: {dividend}");
-            Console.WriteLine($"Remainder: {remainder}");
-
-            return ((remainder == (k - 1)) || (remainder == 0)) ? dividend + 1 : dividend;
+            Console.WriteLine($"]: {n} factors found.");
         }
     }
 }
