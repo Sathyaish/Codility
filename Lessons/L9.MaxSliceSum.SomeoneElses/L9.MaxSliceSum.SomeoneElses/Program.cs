@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 // https://codility.com/media/train/7-MaxSlice.pdf
 class Program
@@ -11,23 +10,21 @@ class Program
         Test(new[] { 1 });
         Test(new[] { 0 });
         Test(new[] { int.MinValue });
-        Test(new[] { 4, 7, 1, 2, -3, 9, 12 });
-        Test(Enumerable.Repeat<int>(int.MinValue, 10).ToArray());
+        Test(new[] { 4, 7, 1, 2, 3, 9, 12 });
+        Test(new[] { 23171, 21011, 21123, 21366, 21013, 21367 });
+        Test(new[] { 3, 2, -6, 4, 0 });
         Test(new[] { -2, 1 });
-
-        // This test takes far too long for solution1 and solution2
-        // and causes an OutOfMemoryException for solution3
-        // Test(Enumerable.Range(int.MinValue, int.MaxValue).ToArray());
+        Test(new[] { -4, -2 });
     }
 
     static void Test(int[] array)
     {
         try
         {
-            var result = new Solution().solution3(array);
+            var result = new Solution().solution(array);
             Console.WriteLine(result);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }

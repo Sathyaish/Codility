@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{462F77E4-AB1B-4AE3-847D-2E5BD28E4A7A}</ProjectGuid>
+    <ProjectGuid>{1B8A0CAC-0C33-45FF-84E5-91FE4BC0260D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>L9.MaximumSliceProblem.MaxProfit</RootNamespace>
-    <AssemblyName>L9.MaximumSliceProblem.MaxProfit</AssemblyName>
+    <RootNamespace>L10.Prime.CountFactors</RootNamespace>
+    <AssemblyName>L10.Prime.CountFactors</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,9 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
