@@ -27,7 +27,7 @@ internal class Solution
 
         if (k < 2) return k;
 
-        if (k == 2) return ((AbsoluteValue(peaks[0] - peaks[1]) >= k) ? 1 : 0);
+        if (k == 2) return ((AbsoluteValue(peaks[0] - peaks[1]) >= k) ? 2 : 0);
 
         // Filter only those peaks that satisfy the absolute value
         // condition
