@@ -11,6 +11,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine();
+        var denominations = new[] { 2, 5, 10, 20, 50 };
+        var amount = 2026;
+
+        var sets = new Solution().solution(denominations, amount);
+
+        Console.WriteLine($"Amount: Rs.{amount}\n");
+
+        var runningTotal = 0L;
+        foreach (var set in sets)
+        {
+            var total = set.NumberOfCoins * set.Denomination;
+            runningTotal += total;
+
+            Console.WriteLine($"{set.NumberOfCoins} notes of Rs.{set.Denomination} each = {total}");
+        }
+
+        Console.WriteLine("===============================================");
+        Console.WriteLine($"TOTAL: Rs. {runningTotal}\n");
     }
 }

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 public class Solution
 {
-
-    // To be continued tomorrow
-
     public Set[] solution(int[] denominations, int amount)
     {
         if (denominations == null)
@@ -13,32 +10,23 @@ public class Solution
 
         var len = denominations.Length;
 
-        if (len == 1)
-        {
-            var d = denominations[0];
-
-            if (d > amount) return new Set[] { new Set(d, 1) };
-
-            var q = amount % d;
-            var dividend = amount / d;
-            var n = (q == 0) ? dividend : ++dividend;
-
-            return new Set[] { new Set(d, n) };
-        }
-
         Array.Sort(denominations);
 
         var sets = new List<Set>();
         var remainingAmount = amount;
 
-        for(int i = len - 1; ((i >= 0) || (remainingAmount == 0)); i--)
+        for(int i = len - 1; ((i >= 0) && (remainingAmount > 0)); i--)
         {
             var d = denominations[i];
-            var q = remainingAmount % d;
+            if (d == 0) break;
             var dividend = remainingAmount / d;
+            remainingAmount = remainingAmount % d;
 
-            
+            sets.Add(new Set(d, dividend));
         }
+
+        if (remainingAmount > 0)
+            sets[len - 1].NumberOfCoins++;
 
         return sets?.ToArray();
     }
